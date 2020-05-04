@@ -29,8 +29,6 @@ func (uc UserController) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		if len(matches) == 0 {
 			w.WriteHeader(http.StatusNotFound)
 		}
-		// The following line breaks with an unhandled panic (http: panic
-		// serving [::1]:64100: runtime error: index out of range [1] with length 0)
 		id, err := strconv.Atoi(matches[1])
 		if err != nil {
 			w.WriteHeader(http.StatusNotFound)
